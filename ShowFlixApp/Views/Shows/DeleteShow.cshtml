@@ -1,0 +1,23 @@
+﻿@model ShowFlixApp.Models.Show
+
+<div class="card w-50">
+    <div class="card-header">
+        <h1>@Model.ShowName</h1>
+
+    </div>
+    <div class="card-body">
+        <div class="card-img">
+            <img src=@Model.ShowImg />
+        </div>
+        <div class="card-text">
+          <p>Genre : @Model.Category</p>  
+          <p>Actors : @Model.LeadActors</p>
+        </div>
+    </div>
+    <div class="card-footer">
+        <p>Are you sure to delete the Show from the system ? </p>
+        <a asp-action="Yes" asp-route-showId=@Model.ShowId class="btn btn-sm btn-success">Yes</a>
+                <a asp-action="Index" class="btn btn-sm btn-danger">No</a>
+
+    </div>
+</div>

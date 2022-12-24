@@ -1,0 +1,36 @@
+﻿@model ShowFlixApp.Models.Show
+
+<br/>
+<br/>
+<br/>
+<br/>
+<form asp-action="CreateShow" method="post">
+    <div class="form-group w-25">
+    <label>Show Name</label>
+
+    <input   asp-for=ShowName    class="form-control" id="txtShowName">
+
+
+  </div>
+  <div class="form-group w-25">
+    <label>Category :</label>
+
+    <input asp-for=Category class="form-control" id="txtCategory">
+
+  </div>
+  <div class="form-group w-25">
+    <label>Language</label>
+
+    <input class="form-control" asp-for=Language id="txtLanguage">
+
+  </div>
+  <div class="form-group w-25">
+    <label>Lead Actors :</label>
+
+    <input asp-for=LeadActors  class="form-control" id="txtLeadActor">
+
+  </div>
+  
+  <button type="submit" class="btn btn-secondary">Submit</button>
+
+</form>

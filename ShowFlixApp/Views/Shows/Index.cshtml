@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ShowFlixApp.Models.Show>
+
+<p class="alert alert-primary text-center display-4">
+ @ViewBag.PageTitle
+</p>
+
+<a asp-action="CreateShow" class="btn btn-secondary">Create New</a>
+
+<br/>
+<br/>
+<table class="table table-bordered">
+    <tr>
+        <th>Show Name</th>
+        <th>Category</th>
+        <th>Language</th>
+        <th>Lead Actors</th>
+        <th>Action</th>
+    </tr>
+
+@*    Razor syntax
+*@   
+@foreach(var item in Model)
+    {
+        <tr>
+            <td><a  asp-action="GetShow" asp-route-showId="@item.ShowId">@item.ShowName</a></td>
+            <td>@item.Category</td>
+            <td>@item.Language</td>
+            <td>@item.LeadActors</td>
+            <td><a asp-action="DeleteShow" class="btn btn-danger" asp-route-showId="@item.ShowId"> Delete</a> </td>
+        </tr>
+    }
+
+</table>
