@@ -6,10 +6,10 @@ namespace ShowFlixApp.Controllers
 {
     public class ShowsController : Controller
     {
-        ShowsRepository repo;
+        SQLServerShowRepository repo;
         public IActionResult Index()
         {
-            repo = new ShowsRepository();
+            repo = new SQLServerShowRepository();
             List<Show> shows = repo.GetAllShows();
           ViewBag.PageTitle = "Show Details From ShowFlix";
              return View(shows);
@@ -17,25 +17,26 @@ namespace ShowFlixApp.Controllers
 
         public IActionResult GetShow(int showId)
         {
-            repo = new ShowsRepository();
+            repo = new SQLServerShowRepository();
             Show show = repo.GetShowById(showId);
             return View(show);
         }
     
   public IActionResult DeleteShow(int showId)
         {
-            repo = new ShowsRepository();
+            repo = new SQLServerShowRepository();
             Show show = repo.GetShowById(showId);
             return View(show);
         }
 
         public IActionResult Yes(int showId)
         {
-            repo = new ShowsRepository();
+            repo = new SQLServerShowRepository();
             repo.DeleteShow(showId);
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public IActionResult CreateShow()
         {
             return View();
@@ -44,7 +45,7 @@ namespace ShowFlixApp.Controllers
         [HttpPost]
         public IActionResult CreateShow(Show show)
         {
-            repo = new ShowsRepository();
+            repo = new SQLServerShowRepository();
             repo.AddNewShow(show);
             return RedirectToAction("Index");
         }
