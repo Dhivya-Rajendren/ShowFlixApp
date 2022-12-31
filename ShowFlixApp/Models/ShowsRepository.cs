@@ -39,5 +39,10 @@ new Show() { ShowId = 3, ShowName = "the BigBang Theory", Language = "English", 
 
 
         }
+
+        public List<ShowStreaming> ShowsStreaming()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

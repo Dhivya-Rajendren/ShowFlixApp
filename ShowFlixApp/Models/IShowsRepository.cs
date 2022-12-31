@@ -9,5 +9,7 @@ namespace ShowFlixApp.Models
 
         void AddNewShow(Show show);
         void DeleteShow(int showId);
+
+        List<ShowStreaming> ShowsStreaming();
     }
 }

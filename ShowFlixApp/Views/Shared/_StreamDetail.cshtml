@@ -1,0 +1,30 @@
+﻿@model ShowFlixApp.Models.ShowStreaming
+
+
+<p class="alert alert-heading"> Show Streaming Details : @Model.Show.ShowName</p>
+
+
+<div class="card col-sm-3">
+    <div class="card-body">
+    <div class="card-text">
+    Show Date and Time :    @Model.ShowDateTime<br/>
+    Duration :    @Model.DurationInMinutes
+    </div>
+</div>
+
+@if((string)ViewData["ViewName"]=="Delete")
+    {
+        <div class="card-footer">
+  <p>Are you sure to delete the Streaming ? <a asp-action="Yes" class="btn btn-sm btn-primary">Yes</a>
+  <a asp-action="Index" class="btn btn-sm btn-danger">No</a>    
+  
+  </p>
+        </div>
+    }
+    else
+    {
+        <div class="card-footer">
+    <a asp-action="Index" class="btn btn-primary"> Back To All Shows</a>
+</div>
+    }
+</div>
