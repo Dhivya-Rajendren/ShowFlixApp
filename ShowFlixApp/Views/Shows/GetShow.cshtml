@@ -1,17 +1,9 @@
 ﻿@model ShowFlixApp.Models.Show
 
-<div class="card w-50">
-    <div class="card-header">
-        <h1>@Model.ShowName</h1>
 
-    </div>
-    <div class="card-body">
-        <div class="card-img">
-            <img src=@Model.ShowImg />
-        </div>
-        <div class="card-text">
-          <p>Genre : @Model.Category</p>  
-          <p>Actors : @Model.LeadActors</p>
-        </div>
-    </div>
-</div>
+
+@await Component.InvokeAsync("Show",new {showId=@Model.ShowId,viewName="Details"})
+
+@*    <div class="card-footer">
+        <a asp-action="Index" class="btn btn-primary">Back to Shows</a>
+    </div>*@

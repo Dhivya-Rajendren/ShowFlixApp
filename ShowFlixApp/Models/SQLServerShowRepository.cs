@@ -29,7 +29,8 @@ namespace ShowFlixApp.Models
 
         public void DeleteShow(int showId)
         {
-            throw new System.NotImplementedException();
+            com = new SqlCommand("Delete from showFlix where showid=" + showId, con);
+            com.ExecuteNonQuery();
         }
 
         public List<Show> GetAllShows()

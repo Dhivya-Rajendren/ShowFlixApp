@@ -9,16 +9,19 @@ namespace ShowFlixApp.Controllers
 {
     public class ShowsController : Controller
     {
-        SQLServerShowRepository repo;
+       
         private readonly IHostingEnvironment environment;
+        private readonly IShowsRepository repo;
 
-        public ShowsController(IHostingEnvironment environment)
+        public ShowsController(IHostingEnvironment environment,IShowsRepository repo)
         {
             this.environment = environment;
+            this.repo = repo;
+            
         }
         public IActionResult Index()
         {
-            repo = new SQLServerShowRepository();
+          
             List<Show> shows = repo.GetAllShows();
           ViewBag.PageTitle = "Show Details From ShowFlix";
              return View(shows);
@@ -26,21 +29,21 @@ namespace ShowFlixApp.Controllers
 
         public IActionResult GetShow(int showId)
         {
-            repo = new SQLServerShowRepository();
+           
             Show show = repo.GetShowById(showId);
             return View(show);
         }
     
   public IActionResult DeleteShow(int showId)
         {
-            repo = new SQLServerShowRepository();
+           
             Show show = repo.GetShowById(showId);
             return View(show);
         }
 
         public IActionResult Yes(int showId)
         {
-            repo = new SQLServerShowRepository();
+            
             repo.DeleteShow(showId);
             return RedirectToAction("Index");
         }
@@ -64,7 +67,7 @@ namespace ShowFlixApp.Controllers
                 show.ShowImg = "images/" + file.FileName;
             }
 
-            repo = new SQLServerShowRepository();
+         
             repo.AddNewShow(show);
             return RedirectToAction("Index");
         }

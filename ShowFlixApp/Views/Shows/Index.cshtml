@@ -8,13 +8,14 @@
 
 <br/>
 <br/>
-<table class="table table-bordered">
+<table class="table table-bordered w-75">
     <tr>
         <th>Show Name</th>
         <th>Category</th>
         <th>Language</th>
         <th>Lead Actors</th>
         <th>Action</th>
+           <th>Action</th>
     </tr>
 
 @*    Razor syntax
@@ -22,10 +23,11 @@
 @foreach(var item in Model)
     {
         <tr>
-            <td><a  asp-action="GetShow" asp-route-showId="@item.ShowId">@item.ShowName</a></td>
+            <td>@item.ShowName</td>
             <td>@item.Category</td>
             <td>@item.Language</td>
             <td>@item.LeadActors</td>
+            <td><a  asp-action="GetShow" asp-route-showId="@item.ShowId" class="btn btn-warning">Details</a></td>
             <td><a asp-action="DeleteShow" class="btn btn-danger" asp-route-showId="@item.ShowId"> Delete</a> </td>
         </tr>
     }
